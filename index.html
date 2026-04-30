@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Na'im — Portfolio</title>
+<link rel="icon" type="image/png" href="media/favicon.png">
+<link rel="apple-touch-icon" href="media/favicon.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e1e1e'/><text x='50%25' y='72%25' font-family='monospace' font-size='65' font-weight='bold' fill='%23ffffff' text-anchor='middle'>N</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="header-nav anim-element d-0">
+<div class="widgets-container">
+<div class="clock-widget hover-target">
+<i class="fa-regular fa-clock"></i>
+<span id="realTimeClock">00:00:00 WIB</span>
+</div>
+<div class="battery-widget hover-target" id="batteryWidget" title="Status Baterai">
+<i class="fa-solid fa-battery-half" id="batteryIcon"></i>
+<span id="batteryLevel">--%</span>
+</div>
+</div>
+<div class="theme-switch-wrapper hover-target" id="themeToggleWrapper">
+<div class="theme-slider" id="themeSlider"></div>
+<div class="theme-tab dark-tab active" id="tabDark"><i class="fa-solid fa-moon"></i> Dark</div>
+<div class="theme-tab light-tab" id="tabLight"><i class="fa-solid fa-sun"></i> Light</div>
+</div>
+</div>
+
+<div class="hero-section anim-element d-1">
+<div class="avatar-wrap hover-target">
+<img id="avatarFallback" class="avatar" src="media/profile.jpg" alt="Nimzz" 
+onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><rect fill=%22%23212121%22 width=%22120%22 height=%22120%22 rx=%2228%22/><text x=%2260%22 y=%2275%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%236b7280%22 font-family=%22monospace%22>N</text></svg>'"/>
+<video id="avatarVideo" class="avatar" autoplay loop muted playsinline style="display: none;">
+<source src="media/profile.mp4" type="video/mp4" id="videoSource">
+</video>
+</div>
+<div class="hero-info">
+<div class="name">Muhammad Na'im</div>
+<div class="handle">Nimzz • Beginner & Editor</div>
+<div class="status-pill hover-target"><div class="status-dot"></div> Open to collaborate</div>
+</div>
+</div>
+
+<div class="about-card hover-target anim-element d-2">
+Saya adalah siswa kelas 10 di jurusan <b>Teknik Komputer & Jaringan (TKJ)</b>. 
+Terbiasa menulis kode program secara mandiri dan membuat proyek kreatif langsung menggunakan *smartphone*. 
+Selain *coding*, saya juga aktif di bidang *video editing* menggunakan Alight Motion. 
+<br>
+<div class="tags">
+<span class="tag hover-target"><i class="fa-solid fa-code"></i> Mobile Coding</span>
+<span class="tag hover-target"><i class="fa-solid fa-film"></i> Alight Motion</span>
+<span class="tag hover-target"><i class="fa-solid fa-network-wired"></i> Networking</span>
+</div>
+</div>
+
+<div class="code-card hover-target anim-element d-3">
+<div class="code-header">
+<div class="mac-dots"><div class="mac-dot dot-red"></div><div class="mac-dot dot-yel"></div><div class="mac-dot dot-grn"></div></div>
+<div class="code-title">nimzz.js</div>
+</div>
+<div class="code-body">
+<span class="syn-kw">const</span> <span class="syn-func">profile</span> = {<br>
+&nbsp;&nbsp;name: <span class="syn-str">"Muhammad Na'im"</span>,<br>
+&nbsp;&nbsp;role: <span class="syn-str">"TKJ Student & Dev"</span>,<br>
+&nbsp;&nbsp;location: <span class="syn-str">"Sragen, Indonesia"</span>,<br>
+&nbsp;&nbsp;hobbies: [<span class="syn-str">"Mobile Coding"</span>, <span class="syn-str">"Video Editing"</span>],<br>
+&nbsp;&nbsp;skills: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;code: [<span class="syn-str">"HTML"</span>, <span class="syn-str">"CSS"</span>, <span class="syn-str">"JS"</span>],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tools: [<span class="syn-str">"Alight Motion"</span>]<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;isAvailable: <span class="syn-bool">true</span><br>
+};
+</div>
+</div>
+
+<div class="music-card hover-target anim-element d-4" id="musicCard">
+<div class="music-header">
+<img class="music-art" id="musicArt" src="media/album.jpg" alt="Cover" onerror="this.src='https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=200&auto=format&fit=crop'">
+<div class="music-info">
+<div class="music-title">
+DJ I WANNA FEEL LIKE
+<div class="spotify-wave"></div>
+</div>
+<div class="music-artist">-</div>
+</div>
+<button class="music-play-btn" id="playBtn">
+<i class="fa-solid fa-play" id="playIcon"></i>
+</button>
+</div>
+<div class="music-progress-wrapper">
+<span id="currTime">0:00</span>
+<div class="progress-bg" id="progressBg">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<span id="totTime">0:00</span>
+</div>
+<audio id="bgMusic" src="media/lagu.mp3" preload="metadata"></audio>
+</div>
+
+<div class="divider anim-element d-5"><div class="divider-line"></div><div class="divider-label">Skills Stack</div><div class="divider-line"></div></div>
+
+<div class="skill-grid anim-element d-6">
+<div class="skill-card hover-target"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+<div class="skill-card hover-target"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+<div class="skill-card hover-target"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+<div class="skill-card hover-target"><i class="fa-solid fa-headphones"></i><span>Music Lover</span></div>
+<div class="skill-card hover-target"><i class="fa-solid fa-server"></i><span>Networking</span></div>
+<div class="skill-card hover-target"><i class="fa-solid fa-mobile-screen"></i><span>Mobile Dev</span></div>
+<div class="skill-card hover-target"><i class="fa-solid fa-video"></i><span>Video Edit</span></div>
+<div class="skill-card hover-target"><i class="fa-solid fa-robot"></i><span>Bot Dev</span></div>
+</div>
+
+<div class="divider anim-element d-6"><div class="divider-line"></div><div class="divider-label">Location</div><div class="divider-line"></div></div>
+
+<div class="map-card hover-target anim-element d-7">
+<div class="map-overlay"></div>
+<iframe src="https://maps.google.com/maps?q=Sragen,%20Jawa%20Tengah&t=&z=11&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Peta Sragen"></iframe>
+</div>
+
+<div class="divider anim-element d-7"><div class="divider-line"></div><div class="divider-label">Connect</div><div class="divider-line"></div></div>
+
+<div class="links anim-element d-8">
+<a class="link-card hover-target" href="https://wa.me/6282137487477" target="_blank">
+<div class="link-icon"><i class="fa-brands fa-whatsapp"></i></div>
+<div class="link-info"><div class="link-title">WhatsApp</div><div class="link-desc">Nimzz.</div></div>
+<i class="fa-solid fa-arrow-right link-arrow"></i>
+</a>
+<a class="link-card hover-target" href="https://t.me/Nimzz4" target="_blank">
+<div class="link-icon"><i class="fa-brands fa-telegram"></i></div>
+<div class="link-info"><div class="link-title">Telegram</div><div class="link-desc">@Nimzz4</div></div>
+<i class="fa-solid fa-arrow-right link-arrow"></i>
+</a>
+</div>
+
+<div class="footer anim-element d-9">
+<div class="footer-brand">© 2026 <span>Nimzz</span> — Take. Create. Deploy.</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
